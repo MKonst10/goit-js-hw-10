@@ -2,18 +2,29 @@ import iziToast from 'izitoast';
 import 'izitoast/dist/css/iziToast.min.css';
 
 const promiseForm = document.querySelector('.form');
+const delayInput = document.querySelector('input[name="delay"]');
+const fulfilledState = document.querySelector('input[value="fulfilled"]');
+let delayInMs = null;
 
-function makePromise(delay, promiseState) {
-  const promise = new Promise((resolve, reject) => {
-    setTimeout(() => {
-      if (promiseState === 'fulfilled') {
-        resolve(`✅ Fulfilled promise in ${delay}ms`);
-      } else if (promiseState === 'rejected') {
-        reject(`❌ Rejected promise in ${delay}ms`);
-      }
-    }, delay);
-  });
-  promise
+delayInput.addEventListener('input', () => {
+  delayInMs = delayInput.value;
+});
+
+const onFormSubmit = event => {
+  event.preventDefault();
+  const makePromise = () => {
+    const fulfilled = fulfilledState.checked;
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        if (fulfilled != false) {
+          resolve(`✅ Fulfilled promise in ${delayInMs}ms`);
+        } else {
+          reject(`❌ Rejected promise in ${delayInMs}ms`);
+        }
+      }, delayInMs);
+    });
+  };
+  makePromise()
     .then(value => {
       iziToast.show({
         message: value,
@@ -31,11 +42,6 @@ function makePromise(delay, promiseState) {
       });
     });
   promiseForm.reset();
-}
+};
 
-promiseForm.addEventListener('submit', event => {
-  event.preventDefault();
-  const delay = Number(promiseForm.elements.delay.value);
-  const promiseState = promiseForm.elements.state.value;
-  makePromise(delay, promiseState);
-});
+promiseForm.addEventListener('submit', onFormSubmit);
