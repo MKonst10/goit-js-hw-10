@@ -1,15 +1,10 @@
-/**
-  |============================
-  | include css partials with
-  | default @import url()
-  |============================
-*/
 @import url('./reset.css');
 @import url('./vite-promo.css');
 @import url('./header.css');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 
 :root {
-  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-family: Montserrat, Inter, Avenir, Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 24px;
   font-weight: 400;
@@ -22,4 +17,199 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   -webkit-text-size-adjust: 100%;
+}
+
+.timer {
+  display: flex;
+  gap: 24px;
+  margin-left: 24px;
+  margin-top: 32px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-transform: uppercase;
+}
+
+.field .value {
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+}
+
+#datetime-picker {
+  box-sizing: border-box;
+  width: 272px;
+  height: 40px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  gap: 8px;
+  padding-left: 16px;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  transition: border 150ms;
+  outline: none;
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+#datetime-picker:disabled {
+  color: #808080;
+}
+
+#datetime-picker:hover {
+  border: 1px solid #000;
+}
+
+#datetime-picker:active {
+  border: 1px solid #4e75ff;
+}
+
+button[data-start] {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 75px;
+  height: 40px;
+  border: none;
+  font-family: Montserrat, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  background-color: #4e75ff;
+  color: #fff;
+  transition: background-color 150ms;
+}
+
+button[data-start]:disabled {
+  background-color: #cfcfcf;
+}
+
+button[data-start]:disabled:hover {
+  background-color: #cfcfcf;
+}
+
+button[data-start]:hover {
+  background-color: #6c8cff;
+}
+
+.dayContainer .flatpickr-day.today {
+  border-color: #4e75ff;
+}
+
+.dayContainer .flatpickr-day.selected {
+  background-color: #4e75ff;
+  border-color: #4e75ff;
+}
+
+.dayContainer .flatpickr-day:hover {
+  background-color: #c1c1c1;
+}
+
+.dayContainer .flatpickr-day.selected:hover {
+  background-color: #6c8cff;
+}
+
+.flatpickr-month .flatpickr-current-month .flatpickr-monthDropdown-months {
+  font-weight: 600;
+}
+
+.flatpickr-month .flatpickr-current-month input.cur-year {
+  font-weight: 600;
+}
+
+.form {
+  margin-top: 24px;
+  margin-left: 24px;
+}
+
+.form label:first-child {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.form input[name='delay'] {
+  border: 1px solid #808080;
+  border-radius: 4px;
+  width: 360px;
+  height: 40px;
+  box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
+  font-size: 16px;
+  letter-spacing: 0.04em;
+  color: #2e2f42;
+  padding-left: 16px;
+  padding-top: 8px;
+  padding-bottom: 8px;
+  outline: none;
+  transition: border 150ms;
+}
+
+.form input[name='delay']:hover {
+  border: 1px solid #000;
+}
+
+.form input[name='delay']:active {
+  border: 1px solid #4e75ff;
+}
+
+.form fieldset {
+  width: 360px;
+  height: 66px;
+  border-radius: 4px;
+  border: 1px solid #808080;
+  box-sizing: border-box;
+  margin-left: 0;
+  margin-right: 0;
+  margin-top: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 48px;
+  transition: border 150ms;
+}
+
+.form fieldset:hover {
+  border: 1px solid #000;
+}
+
+.form fieldset label {
+  display: flex;
+  align-items: center;
+}
+
+.form fieldset label input {
+  margin-top: 0;
+  margin-bottom: 0;
+  margin-right: 8px;
+  width: 20px;
+  height: 20px;
+  accent-color: #4e75ff;
+}
+
+.form button[type='submit'] {
+  border-radius: 8px;
+  padding: 8px 16px;
+  width: 360px;
+  height: 40px;
+  background-color: #4e75ff;
+  border: none;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+  letter-spacing: 0.04em;
+  color: #fff;
+  font-family: Montserrat, sans-serif;
+  margin-top: 24px;
+  transition: background-color 150ms;
+}
+
+.form button[type='submit']:hover {
+  background-color: #6c8cff;
 }
